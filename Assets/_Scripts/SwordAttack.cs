@@ -18,10 +18,13 @@ public class SwordAttack : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKey(KeyCode.L) && canAtack) {
-            canAtack = false;
-            anim.Play("SwordAttack");
-            StartCoroutine(Resetfire());
+        if (!GameManager.IsPaused && GameManager.SwordIsEnabled) {
+            if (Input.GetMouseButtonDown(1) && canAtack) {
+                //if (Input.GetKey(KeyCode.L) && canAtack) {
+                canAtack = false;
+                anim.Play("SwordAttack");
+                StartCoroutine(Resetfire());
+            }
         }
     }
 

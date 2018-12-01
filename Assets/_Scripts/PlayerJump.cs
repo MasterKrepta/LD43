@@ -24,22 +24,22 @@ public class PlayerJump : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        SetGravity();//FOR TESTING
-        Debug.Log(Physics.gravity.y + " is our gravity");
-        //Debug.Log(rb.velocity.y);
-        if (Input.GetButton("Jump") && isGrounded){
-            rb.velocity = Vector3.up * jumpForce;
+        //SetGravity();//FOR TESTING
+        if (!GameManager.IsPaused && GameManager.JumpIsEnabled) {
+            if (Input.GetButton("Jump") && isGrounded) {
+                rb.velocity = Vector3.up * jumpForce;
 
-            ////Better jumping
-            if (rb.velocity.y < 0) {
-                rb.velocity += Vector3.up * Physics.gravity.y * (fallMulti - 1) * Time.deltaTime;
-                Debug.Log("fallmulti");
+                ////Better jumping
+                if (rb.velocity.y < 0) {
+                    rb.velocity += Vector3.up * Physics.gravity.y * (fallMulti - 1) * Time.deltaTime;
+                    Debug.Log("fallmulti");
+                }
+                else if (rb.velocity.y > 0 && !Input.GetButton("Jump")) {
+                    rb.velocity += Vector3.up * Physics.gravity.y * (lowMulti - 1) * Time.deltaTime;
+                    Debug.Log("lowMulti");
+                }
+                isGrounded = false;
             }
-            else if (rb.velocity.y > 0 && !Input.GetButton("Jump")) {
-                rb.velocity += Vector3.up * Physics.gravity.y * (lowMulti - 1) * Time.deltaTime;
-                Debug.Log("lowMulti");
-            }
-            isGrounded = false;
         }
     }
 

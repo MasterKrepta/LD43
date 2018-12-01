@@ -17,10 +17,13 @@ public class Shoot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.Return) && canFire) {
-            canFire = false;
-            StartCoroutine(Resetfire());
-            Instantiate(bullet, barrel.position, transform.rotation);
+        if (!GameManager.IsPaused && GameManager.GunIsEnabled) {
+            //if(Input.GetKey(KeyCode.Return) && canFire) {
+            if (Input.GetMouseButton(0) && canFire) {
+                canFire = false;
+                StartCoroutine(Resetfire());
+                Instantiate(bullet, barrel.position, transform.rotation);
+            }
         }
 	}
 
