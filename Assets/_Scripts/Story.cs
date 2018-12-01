@@ -43,11 +43,13 @@ public class Story : MonoBehaviour {
 
         //Fifth
         transmissions.Add("My systems are almost back online, I just need a replacement power core and I can head back home");
+        transmissions.Add("I know it's a lot to ask, but a jump from your battery is the only hope I have for getting back home");
         transmissions.Add("BREAK");
 
         //FINAL
         transmissions.Add("Thank you for your sacrifice");
         transmissions.Add("BREAK");
+        //TODO display end game scene here. 
     }
 
     public void GetNextLine() {

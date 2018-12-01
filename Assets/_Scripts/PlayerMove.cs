@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour {
 
@@ -9,9 +10,13 @@ public class PlayerMove : MonoBehaviour {
     [SerializeField] float moveSpeed;
     float baseMoveSpeed;
     [SerializeField] float rotSpeed;
+
+    [SerializeField] Slider boostSlider;
     [SerializeField] float boostSpeed;
     [SerializeField] bool canBoost = true;
     [SerializeField] float boostTime;
+    [SerializeField] float boostCoolDown;
+    float timer = 0;
 
     Rigidbody rb;
     // Use this for initialization
@@ -21,6 +26,11 @@ public class PlayerMove : MonoBehaviour {
         baseMoveSpeed = moveSpeed;
 	}
     private void Update() {
+        if (!canBoost) {
+            timer += Time.deltaTime;
+            boostSlider.value = (timer / (boostCoolDown + boostTime));
+        }
+        
         if (Input.GetKeyDown(KeyCode.Escape)) {
             GameManager.TogglePause();
         }
@@ -39,6 +49,7 @@ public class PlayerMove : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.LeftShift) && canBoost) {
                     baseMoveSpeed = moveSpeed; // For testing only incase we change mid play
                     canBoost = false;
+                    boostSlider.value = boostSlider.minValue;
                     StartCoroutine(BoostMode());
                 }
             }
@@ -53,6 +64,8 @@ public class PlayerMove : MonoBehaviour {
         moveSpeed = boostSpeed;
         yield return new WaitForSeconds(boostTime);
         moveSpeed = baseMoveSpeed;
+        yield return new WaitForSeconds(boostCoolDown);
+        timer = 0;
         canBoost = true;
     }
 }

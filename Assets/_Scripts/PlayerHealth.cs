@@ -6,6 +6,9 @@ public class PlayerHealth : MonoBehaviour, IDamagable{
     [SerializeField] GameObject gameOverScreen;
 
     [SerializeField] float maxHealth;
+
+    [SerializeField] bool invulnerable = false;
+    [SerializeField] float invulReset = 2f;
     public float MaxHealth {
         get { return maxHealth; }
         set { maxHealth = value; }
@@ -21,17 +24,26 @@ public class PlayerHealth : MonoBehaviour, IDamagable{
         GameManager.PlayerDied(gameOverScreen);
     }
 
-    public void TakeDamage(float dmg) {
-        Debug.Log(this.name + "takes damage: health remaining = : " + CurrentHealth);
-        CurrentHealth -= dmg;
-        if (CurrentHealth <= 0) {
-            Die();
+    public void TakeDamage(float dmg, Vector3 dir) {
+        if (!invulnerable) {
+            invulnerable = true;
+            Debug.Log(this.name + "takes damage: health remaining = : " + CurrentHealth);
+            CurrentHealth -= dmg;
+            if (CurrentHealth <= 0) {
+                Die();
+            }
+            Invoke("ResetInvul", invulReset);
         }
+        
     }
 
     // Use this for initialization
     void Awake () {
         CurrentHealth = MaxHealth;
         gameOverScreen.SetActive(false);
+    }
+
+    void ResetInvul() {
+        invulnerable = false;
     }
 }

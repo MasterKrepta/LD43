@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114950251187785322}
   - component: {fileID: 114479458312657678}
   - component: {fileID: 114446894685684870}
+  - component: {fileID: 114074234967499068}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -80,6 +81,7 @@ GameObject:
   - component: {fileID: 33051538707344152}
   - component: {fileID: 23850753549510944}
   - component: {fileID: 65231313443351724}
+  - component: {fileID: 114408693529073062}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -99,6 +101,21 @@ GameObject:
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1912568201622914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4914904087477812}
+  m_Layer: 0
+  m_Name: com
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -155,10 +172,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1050884945069712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 118.8, y: 5.28, z: 166.7}
+  m_LocalPosition: {x: 104.6, y: 3.72, z: 227.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4092935866369272}
+  - {fileID: 4914904087477812}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -175,6 +193,19 @@ Transform:
   m_Father: {fileID: 4280394631475142}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4914904087477812
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1912568201622914}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4520019246906518}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4930848227752328
 Transform:
   m_ObjectHideFlags: 1
@@ -182,7 +213,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1442046775177996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.7}
+  m_LocalPosition: {x: 0, y: 0, z: 1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4966846816404644}
@@ -362,7 +393,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1376433789390514}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -397,6 +428,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114074234967499068
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050884945069712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9535ba3e18441de4b95c4ee7789a6ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  com: {x: 0, y: 0, z: 0.8}
 --- !u!114 &114156806211619360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -424,9 +467,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   rotSpeed: 180
+  boostSlider: {fileID: 0}
   boostSpeed: 30
   canBoost: 1
   boostTime: 1.5
+  boostCoolDown: 5
 --- !u!114 &114338460076856294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,9 +483,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2942baa9fc5a94db56391b730230b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sword: {fileID: 0}
+  sword: {fileID: 4747252294504990}
   attackRate: 0.5
   canAtack: 1
+--- !u!114 &114408693529073062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1376433789390514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a3143fec7faff1449e767b69d0506f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114446894685684870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -452,7 +508,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80588d3c132f1c45a51f86eecd813ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverScreen: {fileID: 0}
   maxHealth: 10
+  invulnerable: 0
+  invulReset: 2
   currentHealth: 0
 --- !u!114 &114479458312657678
 MonoBehaviour:

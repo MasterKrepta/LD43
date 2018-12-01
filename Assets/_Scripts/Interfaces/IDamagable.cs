@@ -8,7 +8,7 @@ public interface IDamagable {
     float MaxHealth { get; set; }
     float CurrentHealth { get; set; }
 
-    void TakeDamage(float dmg);
+    void TakeDamage(float dmg, Vector3 dir);
 
     void Die();
 }

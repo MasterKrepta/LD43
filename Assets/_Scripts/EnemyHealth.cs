@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour, IDamagable {
 
     [SerializeField] float maxHealth;
+    [SerializeField] float knockbackForce;
+    NavMeshAgent agent;
+    
     public float MaxHealth {
         get { return maxHealth; }
         set { maxHealth = value; }
@@ -21,8 +25,10 @@ public class EnemyHealth : MonoBehaviour, IDamagable {
         Destroy(gameObject);
     }
 
-    public void TakeDamage(float dmg) {
+    public void TakeDamage(float dmg, Vector3 dir) {
         CurrentHealth -= dmg;
+        Debug.Log("Hit");
+        Knockback(dir);
         if (CurrentHealth <= 0) {
             Die();
         }
@@ -31,10 +37,12 @@ public class EnemyHealth : MonoBehaviour, IDamagable {
     // Use this for initialization
     void Start () {
         CurrentHealth = MaxHealth;
+        agent = GetComponent<NavMeshAgent>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Knockback(Vector3 dir) {
+
+        agent.velocity = dir * knockbackForce;
+        
+    }
 }

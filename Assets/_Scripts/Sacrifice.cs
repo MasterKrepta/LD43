@@ -6,12 +6,15 @@ using UnityEngine.UI;
 
 public class Sacrifice : MonoBehaviour {
 
+    UIUpdate ui;
+
     [SerializeField]GameObject sacrificeMenu;
     [SerializeField] List<Button> buttons;
     
     [SerializeField] Button battery;
     // Use this for initialization
     void Start () {
+        ui = FindObjectOfType<UIUpdate>();
         sacrificeMenu.SetActive(false);
         battery.interactable = false;
 	}
@@ -37,6 +40,7 @@ public class Sacrifice : MonoBehaviour {
     public void GiveUpJump(Button button) {
         button.interactable = false;
         GameManager.JumpIsEnabled = false;
+        ui.JumpDisabled();
         GameManager.TogglePause();
         sacrificeMenu.SetActive(false);
     }
@@ -44,6 +48,7 @@ public class Sacrifice : MonoBehaviour {
     public void GiveUpSword(Button button) {
         button.interactable = false;
         GameManager.SwordIsEnabled = false;
+        ui.SwordDisabled();
         GameManager.TogglePause();
         sacrificeMenu.SetActive(false);
     }
@@ -51,12 +56,14 @@ public class Sacrifice : MonoBehaviour {
     public void GiveUpGun(Button button) {
         button.interactable = false;
         GameManager.GunIsEnabled = false;
+        ui.GunDisabled();
         GameManager.TogglePause();
         sacrificeMenu.SetActive(false);
     }
     public void GiveUpBoost(Button button) {
         button.interactable = false;
         GameManager.BoostIsEnabled = false;
+        ui.BoostDisabled();
         GameManager.TogglePause();
         sacrificeMenu.SetActive(false);
     }

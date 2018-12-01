@@ -7,7 +7,9 @@ public class CauseDamage : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         IDamagable damagable = other.GetComponentInParent<IDamagable>();
         if (damagable != null) {
-            damagable.TakeDamage(1);
+            Vector3 hitDir = transform.position - other.transform.position;
+            hitDir = hitDir.normalized;
+            damagable.TakeDamage(1, hitDir);
         }
     }
 }
