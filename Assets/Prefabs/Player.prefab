@@ -22,6 +22,9 @@ GameObject:
   - component: {fileID: 54738306592889390}
   - component: {fileID: 114511262151956392}
   - component: {fileID: 114273413289628440}
+  - component: {fileID: 114950251187785322}
+  - component: {fileID: 114479458312657678}
+  - component: {fileID: 114446894685684870}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -152,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1050884945069712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 2.56, z: 19.52}
+  m_LocalPosition: {x: 118.8, y: 5.28, z: 166.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4092935866369272}
@@ -214,7 +217,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5d634ae96a25f9f41ae83336c6270ea4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -249,7 +252,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5d634ae96a25f9f41ae83336c6270ea4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -284,7 +287,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5d634ae96a25f9f41ae83336c6270ea4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -419,8 +422,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c25891c596ef90448a24a6e4fe97612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 6
   rotSpeed: 180
+  boostSpeed: 30
+  canBoost: 1
+  boostTime: 1.5
 --- !u!114 &114338460076856294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -435,6 +441,37 @@ MonoBehaviour:
   sword: {fileID: 0}
   attackRate: 0.5
   canAtack: 1
+--- !u!114 &114446894685684870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050884945069712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80588d3c132f1c45a51f86eecd813ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  currentHealth: 0
+--- !u!114 &114479458312657678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050884945069712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eed978942ac61f4ea5c4f2f81c46990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sacrificeMenu: {fileID: 0}
+  buttons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  battery: {fileID: 0}
 --- !u!114 &114511262151956392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -451,3 +488,15 @@ MonoBehaviour:
   jumpForce: 5
   fallMulti: 7
   lowMulti: 2
+--- !u!114 &114950251187785322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1050884945069712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 029cce06cd04bbe4d9f3e2563d78b586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectables: []

@@ -30,14 +30,12 @@ public class Sacrifice : MonoBehaviour {
             }
         }
         if(activeBtns == 0) {
-            Debug.Log("Endgame Time");
             battery.interactable = true;
         }
     }
 
     public void GiveUpJump(Button button) {
         button.interactable = false;
-        Debug.Log("Jump is gone");
         GameManager.JumpIsEnabled = false;
         GameManager.TogglePause();
         sacrificeMenu.SetActive(false);
@@ -45,7 +43,6 @@ public class Sacrifice : MonoBehaviour {
 
     public void GiveUpSword(Button button) {
         button.interactable = false;
-        Debug.Log("Sword is gone");
         GameManager.SwordIsEnabled = false;
         GameManager.TogglePause();
         sacrificeMenu.SetActive(false);
@@ -53,14 +50,12 @@ public class Sacrifice : MonoBehaviour {
 
     public void GiveUpGun(Button button) {
         button.interactable = false;
-        Debug.Log("Gun is gone");
         GameManager.GunIsEnabled = false;
         GameManager.TogglePause();
         sacrificeMenu.SetActive(false);
     }
     public void GiveUpBoost(Button button) {
         button.interactable = false;
-        Debug.Log("Boost is gone");
         GameManager.BoostIsEnabled = false;
         GameManager.TogglePause();
         sacrificeMenu.SetActive(false);
