@@ -5,6 +5,7 @@ using UnityEngine;
 public class CollectableSpawner : MonoBehaviour {
 
     [SerializeField] List<Collectable> partsToSpawn = new List<Collectable>();
+    [SerializeField] List<GameObject> models = new List<GameObject>();
     int index = 0;
 
     Story story;
@@ -14,8 +15,11 @@ public class CollectableSpawner : MonoBehaviour {
         foreach (Collectable c in partsToSpawn) {
             c.gameObject.SetActive(false);
         }
+        foreach (GameObject go in models) {
+            go.SetActive(false);
+        }
         //SpawnNextPart();
-	}
+    }
 	
     public void SpawnNextPart() {
         if (index > partsToSpawn.Count) {
@@ -23,12 +27,18 @@ public class CollectableSpawner : MonoBehaviour {
             return;
         }
         partsToSpawn[index].gameObject.SetActive(true);
+        
     }
 
     public void IncrementSpawnIndex() {
+        
         if (index == partsToSpawn.Count) {
             return;
-        } 
+        }
+        if (index == models.Count) {
+            return;
+        }
+        models[index].SetActive(true);
         index++;
     }
 }

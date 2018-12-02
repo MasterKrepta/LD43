@@ -32,7 +32,7 @@ public class Story : MonoBehaviour {
         transmissions.Add("BREAK");
 
         //Third
-        transmissions.Add("Thats better, i am getting Telementry Data, but My engines need repaired before I can take off");
+        transmissions.Add("Thats better, i am getting Telementry Data, but I have lost control over my engines");
         transmissions.Add("I have detected a damaged, but salvagable circuit board that should still be intact, just over that ridge");
         transmissions.Add("BREAK");
 

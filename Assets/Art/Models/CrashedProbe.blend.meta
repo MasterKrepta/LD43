@@ -1,0 +1,141 @@
+fileFormatVersion: 2
+guid: 259c9131175ea5b41962a3c132f3c8ee
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: CrashedBody
+    100002: //RootNode
+    100004: radar_dish
+    100006: SolarCells
+    100008: CircuitBoard
+    100010: FuelTanks
+    100012: PowerCord
+    400000: CrashedBody
+    400002: //RootNode
+    400004: radar_dish
+    400006: SolarCells
+    400008: CircuitBoard
+    400010: FuelTanks
+    400012: PowerCord
+    2100000: unnamed
+    2100002: PowerCordAccent
+    2100004: PowercordBody
+    2100006: GreenBase
+    2100008: Plug
+    2100010: Microchips
+    2100012: GoldReflective
+    2100014: BodyBase
+    2100016: BodyTrim
+    2100018: RadarBody
+    2100020: Radar_Posts
+    2100022: SolarCells
+    2100024: FuelBody
+    2100026: FuelTrim
+    2300000: CrashedBody
+    2300002: radar_dish
+    2300004: SolarCells
+    2300006: CircuitBoard
+    2300008: FuelTanks
+    2300010: PowerCord
+    3300000: CrashedBody
+    3300002: radar_dish
+    3300004: SolarCells
+    3300006: CircuitBoard
+    3300008: FuelTanks
+    3300010: PowerCord
+    4300000: radar_dish
+    4300002: CrashedBody
+    4300004: SolarCells
+    4300006: PowerCord
+    4300008: CircuitBoard
+    4300010: FuelTanks
+    6400000: CircuitBoard
+    6400002: CrashedBody
+    6400004: FuelTanks
+    6400006: PowerCord
+    6400008: radar_dish
+    6400010: SolarCells
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 4
+    meshCompression: 0
+    addColliders: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 4
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
