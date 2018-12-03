@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Sacrifice : MonoBehaviour {
 
@@ -68,6 +69,6 @@ public class Sacrifice : MonoBehaviour {
         sacrificeMenu.SetActive(false);
     }
     public void EndGame() {
-        Debug.Log("You Win. Display EndGame");
+        SceneManager.LoadScene(2);
     }
 }

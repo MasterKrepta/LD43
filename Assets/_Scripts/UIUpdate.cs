@@ -9,6 +9,7 @@ public class UIUpdate : MonoBehaviour {
     [SerializeField] Image jump;
     [SerializeField] Image gun;
     [SerializeField] Image sword;
+    [SerializeField] Slider boostSlider;
 
     [SerializeField] Sprite boostDis;
     [SerializeField] Sprite jumpDis;
@@ -17,6 +18,7 @@ public class UIUpdate : MonoBehaviour {
 
     public void BoostDisabled() {
         boost.sprite = boostDis;
+        boostSlider.gameObject.SetActive(false);
     }
     public void JumpDisabled() {
         jump.sprite = jumpDis;
