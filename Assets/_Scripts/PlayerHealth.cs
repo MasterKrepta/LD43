@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour, IDamagable{
     [SerializeField] GameObject gameOverScreen;
+    [SerializeField] Slider playerHealthBar;
 
     [SerializeField] float maxHealth;
 
@@ -27,14 +29,14 @@ public class PlayerHealth : MonoBehaviour, IDamagable{
     public void TakeDamage(float dmg, Vector3 dir) {
         if (!invulnerable) {
             invulnerable = true;
-            Debug.Log(this.name + "takes damage: health remaining = : " + CurrentHealth);
+            GetComponent<AudioSource>().Play();
             CurrentHealth -= dmg;
+            playerHealthBar.value = (currentHealth / maxHealth);
             if (CurrentHealth <= 0) {
                 Die();
             }
             Invoke("ResetInvul", invulReset);
         }
-        
     }
 
     // Use this for initialization

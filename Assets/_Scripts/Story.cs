@@ -20,7 +20,6 @@ public class Story : MonoBehaviour {
         index = -1;
         transmissions.Clear();
 
-
         //First collectable.
         transmissions.Add("Oh thank god you arrived, my systems are not beyond repair, but I cannot contact Earth.");
         transmissions.Add("My scanner range is limited, I need more solar cells to power up enough to scan further");
@@ -35,7 +34,6 @@ public class Story : MonoBehaviour {
         transmissions.Add("Thats better, i am getting Telementry Data, but I have lost control over my engines");
         transmissions.Add("I have detected a damaged, but salvagable circuit board that should still be intact, just over that ridge");
         transmissions.Add("BREAK");
-
 
         //Fourth
         transmissions.Add("Finally! I have the data I need to plan my return, and the ability to take off, The spare fuel Tanks should be somewhere around here.");
@@ -64,7 +62,6 @@ public class Story : MonoBehaviour {
         dialogText.text = "";
         if (transmissions[index] == "BREAK") {
             dialogBox.SetActive(false);
-            Debug.Log("Break here");
             spawner.SpawnNextPart();
             yield break;
         }
@@ -77,8 +74,8 @@ public class Story : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.T)){
-            GetNextLine();
-        }
+        //if (Input.GetKeyDown(KeyCode.T)){
+        //    GetNextLine();
+        //}
     }
 }

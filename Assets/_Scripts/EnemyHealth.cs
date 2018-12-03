@@ -8,6 +8,8 @@ public class EnemyHealth : MonoBehaviour, IDamagable {
     [SerializeField] float maxHealth;
     [SerializeField] float knockbackForce;
     NavMeshAgent agent;
+    Vector3 dir;
+    [SerializeField] bool knockback = false;
     
     public float MaxHealth {
         get { return maxHealth; }
@@ -21,14 +23,16 @@ public class EnemyHealth : MonoBehaviour, IDamagable {
     }
 
     public void Die() {
-        Debug.Log(gameObject.name + " is dead");
         Destroy(gameObject);
     }
 
-    public void TakeDamage(float dmg, Vector3 dir) {
+    public void TakeDamage(float dmg, Vector3 directionHit) {
+
+        dir = directionHit;
         CurrentHealth -= dmg;
-        Debug.Log("Hit");
-        Knockback(dir);
+        GetComponent<AudioSource>().Play();
+        knockback = true;
+        StartCoroutine(Knockback());
         if (CurrentHealth <= 0) {
             Die();
         }
@@ -37,12 +41,25 @@ public class EnemyHealth : MonoBehaviour, IDamagable {
     // Use this for initialization
     void Start () {
         CurrentHealth = MaxHealth;
+        
         agent = GetComponent<NavMeshAgent>();
 	}
 	
-	void Knockback(Vector3 dir) {
-
-        agent.velocity = dir * knockbackForce;
+	IEnumerator Knockback() {
+        agent.angularSpeed = 0;
+        agent.acceleration = 20;
         
+        yield return new WaitForSeconds(0.3f);
+        knockback = false;
+        agent.angularSpeed = 120;
+        agent.acceleration = 8;
+
     }
+
+    private void FixedUpdate() {
+        if (knockback) {
+            agent.velocity = dir * knockbackForce;
+        }
+    }
+
 }

@@ -6,14 +6,16 @@ public class MoveForward : MonoBehaviour {
 
     [SerializeField] float speed = 10f;
     [SerializeField] float lifetime = 5f;
+    Rigidbody rb;
     // Use this for initialization
     void Start () {
-		
+        rb = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position += (transform.forward * speed) * Time.deltaTime;
+        rb.AddForce(transform.forward * speed, ForceMode.Impulse);
+        //transform.position += (transform.forward * speed) * Time.deltaTime;
         Destroy(this.gameObject, lifetime);
 	}
 }

@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour {
     [SerializeField] bool canBoost = true;
     [SerializeField] float boostTime;
     [SerializeField] float boostCoolDown;
+    [SerializeField] GameObject boostGraphic;
     float timer = 0;
 
     Rigidbody rb;
@@ -24,8 +25,10 @@ public class PlayerMove : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         myTransform = transform;
         baseMoveSpeed = moveSpeed;
+        boostGraphic.SetActive(false);
 	}
     private void Update() {
+        
         if (!canBoost) {
             timer += Time.deltaTime;
             boostSlider.value = (timer / (boostCoolDown + boostTime));
@@ -34,10 +37,10 @@ public class PlayerMove : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             GameManager.TogglePause();
         }
-        if (Input.GetKeyDown(KeyCode.Y)) {
-            Sacrifice sacrifice = FindObjectOfType<Sacrifice>();
-            sacrifice.SelectSacrifice();
-        }
+        //if (Input.GetKeyDown(KeyCode.Y)) {
+        //    Sacrifice sacrifice = FindObjectOfType<Sacrifice>();
+        //    sacrifice.SelectSacrifice();
+        //}
     }
 
     void FixedUpdate() {
@@ -47,6 +50,7 @@ public class PlayerMove : MonoBehaviour {
             Vector3 rotation = new Vector3(0, Input.GetAxisRaw("Horizontal"), 0);
             if (GameManager.BoostIsEnabled) {
                 if (Input.GetKeyDown(KeyCode.LeftShift) && canBoost) {
+                    boostGraphic.SetActive(true);
                     baseMoveSpeed = moveSpeed; // For testing only incase we change mid play
                     canBoost = false;
                     boostSlider.value = boostSlider.minValue;
@@ -63,6 +67,7 @@ public class PlayerMove : MonoBehaviour {
     IEnumerator BoostMode() {
         moveSpeed = boostSpeed;
         yield return new WaitForSeconds(boostTime);
+        boostGraphic.SetActive(false);
         moveSpeed = baseMoveSpeed;
         yield return new WaitForSeconds(boostCoolDown);
         timer = 0;

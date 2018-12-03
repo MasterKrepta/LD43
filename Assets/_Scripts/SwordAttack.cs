@@ -21,6 +21,7 @@ public class SwordAttack : MonoBehaviour
     void Update() {
         if (!GameManager.IsPaused && GameManager.SwordIsEnabled) {
             if (Input.GetMouseButtonDown(1) && canAtack) {
+                
                 //if (Input.GetKey(KeyCode.L) && canAtack) {
                 canAtack = false;
                 sword.gameObject.SetActive(true);

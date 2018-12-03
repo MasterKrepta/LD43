@@ -22,7 +22,7 @@ public class Shoot : MonoBehaviour {
             if (Input.GetMouseButton(0) && canFire) {
                 canFire = false;
                 StartCoroutine(Resetfire());
-                Instantiate(bullet, barrel.position, transform.rotation);
+                Instantiate(bullet, barrel.position, barrel.rotation);
             }
         }
 	}

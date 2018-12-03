@@ -42,6 +42,11 @@ ModelImporter:
     4300006: Gun
     4300008: MarsRover
     4300010: Wheels
+    6400000: Engine
+    6400002: Gun
+    6400004: MarsRover
+    6400006: Sword
+    6400008: Wheels
     7400000: Default Take
     9500000: //RootNode
     2186277476908879412: ImportLogs
@@ -78,7 +83,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
