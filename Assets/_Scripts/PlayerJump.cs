@@ -6,8 +6,8 @@ public class PlayerJump : MonoBehaviour {
     [SerializeField] float globalGravity = -9.81f;
 
     Rigidbody rb;
-    [SerializeField] bool isGrounded;
-    [Range (1,15)]
+    [SerializeField] bool isGrounded ;
+    
     [SerializeField]float jumpForce = 10f;
     
 
@@ -25,6 +25,9 @@ public class PlayerJump : MonoBehaviour {
 
     private void FixedUpdate() {
         //SetGravity();//FOR TESTING
+
+        //isGrounded = IsGrounded();
+
         if (!GameManager.IsPaused && GameManager.JumpIsEnabled) {
             if (Input.GetButton("Jump") && isGrounded) {
                 rb.velocity = Vector3.up * jumpForce;
@@ -47,9 +50,19 @@ public class PlayerJump : MonoBehaviour {
         isGrounded = true;
     }
 
+    //bool IsGrounded() {
+
+    //    return Physics.Raycast(transform.position, -transform.up, .2f);
+    //}
+
     void SetGravity() {
         if (globalGravity > 0)
             globalGravity *= -1;
         Physics.gravity = new Vector3(0, globalGravity, 0);
+    }
+
+    void OnDrawGizmosSelected() {
+
+        Debug.DrawRay(transform.position, -transform.up, Color.red, 1.5f);
     }
 }

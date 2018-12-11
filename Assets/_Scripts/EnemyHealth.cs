@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour, IDamagable {
 
+    [SerializeField] MeshRenderer renderBody;
+    Color original;
     [SerializeField] float maxHealth;
     [SerializeField] float knockbackForce;
     NavMeshAgent agent;
@@ -27,7 +30,7 @@ public class EnemyHealth : MonoBehaviour, IDamagable {
     }
 
     public void TakeDamage(float dmg, Vector3 directionHit) {
-
+        StartCoroutine(FlashColor());
         dir = directionHit;
         CurrentHealth -= dmg;
         GetComponent<AudioSource>().Play();
@@ -38,10 +41,16 @@ public class EnemyHealth : MonoBehaviour, IDamagable {
         }
     }
 
+    IEnumerator FlashColor() {
+        renderBody.material.color = Color.red;
+        yield return new WaitForSeconds(1);
+        renderBody.material.color = original;
+    }
+
     // Use this for initialization
     void Start () {
         CurrentHealth = MaxHealth;
-        
+        original = renderBody.material.color;
         agent = GetComponent<NavMeshAgent>();
 	}
 	

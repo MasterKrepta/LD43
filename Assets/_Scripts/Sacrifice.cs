@@ -7,14 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class Sacrifice : MonoBehaviour {
 
-    UIUpdate ui;
+    [SerializeField]UIUpdate ui;
 
     [SerializeField]GameObject sacrificeMenu;
     [SerializeField] List<Button> buttons;
     
     [SerializeField] Button battery;
     // Use this for initialization
-    void Start () {
+    void Awake () {
         ui = FindObjectOfType<UIUpdate>();
         sacrificeMenu.SetActive(false);
         battery.interactable = false;
@@ -39,6 +39,9 @@ public class Sacrifice : MonoBehaviour {
     }
 
     public void GiveUpJump(Button button) {
+        if (ui == null) {
+            EnableUI();
+        }
         button.interactable = false;
         GameManager.JumpIsEnabled = false;
         ui.JumpDisabled();
@@ -47,6 +50,9 @@ public class Sacrifice : MonoBehaviour {
     }
 
     public void GiveUpSword(Button button) {
+        if (ui == null) {
+            EnableUI();
+        }
         button.interactable = false;
         GameManager.SwordIsEnabled = false;
         ui.SwordDisabled();
@@ -55,6 +61,9 @@ public class Sacrifice : MonoBehaviour {
     }
 
     public void GiveUpGun(Button button) {
+        if (ui == null) {
+            EnableUI();
+        }
         button.interactable = false;
         GameManager.GunIsEnabled = false;
         ui.GunDisabled();
@@ -62,6 +71,9 @@ public class Sacrifice : MonoBehaviour {
         sacrificeMenu.SetActive(false);
     }
     public void GiveUpBoost(Button button) {
+        if (ui == null) {
+            EnableUI();
+        }
         button.interactable = false;
         GameManager.BoostIsEnabled = false;
         ui.BoostDisabled();
@@ -71,4 +83,11 @@ public class Sacrifice : MonoBehaviour {
     public void EndGame() {
         SceneManager.LoadScene(2);
     }
+
+    void EnableUI() {
+        //? why Does unity seem to need this????
+        ui = FindObjectOfType<UIUpdate>();
+        sacrificeMenu = GameObject.Find("SacrificePanel");
+    }
+
 }

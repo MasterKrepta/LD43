@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable{
     }
 
     // Use this for initialization
-    void Awake () {
+    void Start () {
         CurrentHealth = MaxHealth;
         gameOverScreen.SetActive(false);
     }

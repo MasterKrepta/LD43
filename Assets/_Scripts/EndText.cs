@@ -14,6 +14,7 @@ public class EndText : MonoBehaviour {
     List<string> transmissions = new List<string>();
 
     private void Start() {
+        Time.timeScale = 1;
         //FINAL
         transmissions.Add("Systems online. We are heading home! Thank you for your sacrifice.");
         

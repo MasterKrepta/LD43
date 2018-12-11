@@ -10,7 +10,10 @@ public class TrackPlayer : MonoBehaviour {
     NavMeshAgent agent;
 	// Use this for initialization
 	void Start () {
-        player = FindObjectOfType<PlayerMove>().transform;
+        //player = FindObjectOfType<PlayerMove>().transform;
+        
+        player = FindObjectOfType<RoverController>().transform;
+        
         agent = GetComponent<NavMeshAgent>();
 	}
 	

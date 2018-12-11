@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4109891998040892}
   - component: {fileID: 95405937331079166}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AlienModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4024721669658352}
   - component: {fileID: 135672863271548150}
   - component: {fileID: 114245209584924184}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4893848498632962}
   - component: {fileID: 33729176181851678}
   - component: {fileID: 23958486549478840}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Teeth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4691188168393660}
   - component: {fileID: 33483209945778478}
   - component: {fileID: 23381746968880116}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BackLEg_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4598734268758632}
   - component: {fileID: 135858593267735020}
   - component: {fileID: 114633636487736020}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,9 +108,9 @@ GameObject:
   - component: {fileID: 114820382331142590}
   - component: {fileID: 82069330950678652}
   - component: {fileID: 54131111853942850}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Alien
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 4371216112116422}
   - component: {fileID: 33418602828396494}
   - component: {fileID: 23963837827707732}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 4380037621247118}
   - component: {fileID: 33959060575183482}
   - component: {fileID: 23572955695150646}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Leg_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 33538681540804036}
   - component: {fileID: 23098907103325868}
   - component: {fileID: 64180474070291944}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4253309092842694}
   - component: {fileID: 33625899528714988}
   - component: {fileID: 23272804786419760}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BackLEg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 4790399772232728}
   - component: {fileID: 33939311119525812}
   - component: {fileID: 23358194926258684}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Teeth_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1243693710431402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 93.2, y: 7.46, z: 236.4}
+  m_LocalPosition: {x: -60.660446, y: 0.017375946, z: -67.8806}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4598734268758632}
@@ -838,8 +838,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf9be6ca52a4464cb279aa04366b39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderBody: {fileID: 23098907103325868}
   maxHealth: 5
-  knockbackForce: 50
+  knockbackForce: 100
   knockback: 0
   currentHealth: 0
 --- !u!135 &135672863271548150
@@ -874,7 +875,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1243693710431402}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
@@ -883,7 +884,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1.75
+  m_Height: 3
   m_BaseOffset: 1.54
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
